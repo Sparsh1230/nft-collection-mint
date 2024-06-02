@@ -1,0 +1,51 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+let nftCol = [];
+
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT (name, information, picture) {
+   const nft_Meta_Data = {
+    name: name,
+    picture: picture,
+    information: information
+   };
+   nftCol.push(nft_Meta_Data); // push the nft_Meta_Data object, not the function
+   console.log("Minted", name)
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+     nftCol.forEach(nft => {
+        console.log("Name: " + nft.name);
+        console.log("Picture: " + nft.picture);
+        console.log("Information: " + nft.information);
+    });
+
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+    return nftCol.length;
+}
+
+// call your functions below this line
+mintNFT("Godzilla","Godzilla.jpeg","A monster originally appeared in the japenese action films.Its japanese name is 'Gojira'. Now it has come under Monsterverse");
+mintNFT("Kong","Kong.jpg","First appeared in 'the king kong',its an extra large size gorilla with human like emotions.It has also now been published under the MOonsterverse franchise.");
+mintNFT("Bumblebee","Bumblebee.png","First appeared in the transformers franchise ,bee is the most favourite tcharacter among fans being it be its robot form or the car form.");
+
+
+listNFTs();
+
+console.log("Total NFTs Minted: " + getTotalSupply());
